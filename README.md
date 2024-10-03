@@ -13,3 +13,5 @@ Api requests and data storage/mutation could been managed inside Context entirel
 Character form has no validations, field types etc.
 
 Characters table could display other fields with multiple values represented as list of links. In this case we could load all these cell values asyncronously per row right after table display or load all the data and only then diplay table. First(async) version is preferred, we would need to schedule and orchestrate requests to API for every cell with multiple links and run these requests in sequence(Vehicles example: Row_1[vehicle_1_url, vehicle_2_url, vehicle_3_url] -> success -> Row_2[vehicle_1_url, ....])
+
+Category page is showing info for any category and actual elements just for "people" category. 
