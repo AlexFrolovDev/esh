@@ -1,50 +1,15 @@
-# React + TypeScript + Vite
+Installation & setup:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Open terminal in project's directory.
+Run "yarn" or "npm install"
+Run "yarn dev" or "npm run dev"
 
-Currently, two official plugins are available:
+Open browser in localhost with designated port.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+App's logic could've been implemented in many various ways.
+SearchPage route defined under protected route for presentation only, all the pages could been protected.
+Api requests and data storage/mutation could been managed inside Context entirely, i chose mixed approach and Context holds api object only.
 
-## Expanding the ESLint configuration
+Character form has no validations, field types etc.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Characters table could display other fields with multiple values represented as list of links. In this case we could load all these cell values asyncronously per row right after table display or load all the data and only then diplay table. First(async) version is preferred, we would need to schedule and orchestrate requests to API for every cell with multiple links and run these requests in sequence(Vehicles example: Row_1[vehicle_1_url, vehicle_2_url, vehicle_3_url] -> success -> Row_2[vehicle_1_url, ....])
